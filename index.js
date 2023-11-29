@@ -1,14 +1,18 @@
 // console.log("hello");
 
+
+
+// mvp.1 | fetch() a single country ✅
 const getCountryByName = async (countryName) => {
     const response = await fetch("https://restcountries.com/v3.1/name/" +countryName);
     const data = await response.json();
     displayData(data)
 }
 
-
+// mvp.2 | take the output from your getCountryByName() function and make use of it on the webpage ✅
 const section = document.querySelector("#countries")
 const displayData = (data) => {
+
     const name = document.createElement("p")
     name.innerText = "Name: " + data[0].name.common
     section.appendChild(name);
@@ -25,9 +29,17 @@ const displayData = (data) => {
     population.innerText = "Population: " + data[0].population
     section.appendChild(population);
 
-console.log(population);
 
+    // const countryName = document.createElement("p")
+    // countryName.innerText = "Name: " + countryName.name.common;
+    // section.appendChild(countryName);
+
+
+// console.log(population);
 
 }
 
+const getAllCountries = document.querySelector("p")
+
 getCountryByName("Norway");
+
